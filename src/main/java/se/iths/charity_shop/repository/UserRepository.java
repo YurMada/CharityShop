@@ -2,8 +2,10 @@ package se.iths.charity_shop.repository;
 
 import org.springframework.data.repository.CrudRepository;
 
+import org.springframework.stereotype.Repository;
 import se.iths.charity_shop.entity.UserEntity;
 
-public interface UserRepository extends CrudRepository {
+@Repository
+public interface UserRepository extends CrudRepository <UserEntity, Long> {
     UserEntity findByUsername(String username);
 }
