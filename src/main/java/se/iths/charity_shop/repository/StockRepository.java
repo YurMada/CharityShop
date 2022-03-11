@@ -1,0 +1,10 @@
+package se.iths.charity_shop.repository;
+
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+import se.iths.charity_shop.entity.StockEntity;
+import se.iths.charity_shop.entity.UserEntity;
+
+@Repository
+public interface StockRepository extends CrudRepository  <StockEntity, Long>{
+}

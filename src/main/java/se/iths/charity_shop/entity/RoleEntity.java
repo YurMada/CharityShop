@@ -1,5 +1,4 @@
-package java.se.iths.charity_shop.entity;
-
+package se.iths.charity_shop.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,19 +6,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class DonationEntity {
-
+public class RoleEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private double amount;
+    private String role;
 
-    public double getAmount() {
-        return amount;
+    public String getRole() {
+        return role;
     }
 
-    public void setAmount(double amount) {
-        this.amount = amount;
+    public void setRole(String role) {
+        this.role = role;
     }
-
 }

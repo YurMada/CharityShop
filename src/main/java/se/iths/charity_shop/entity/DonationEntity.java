@@ -1,4 +1,4 @@
-package java.se.iths.charity_shop.entity;
+package se.iths.charity_shop.entity;
 
 
 import javax.persistence.Entity;
@@ -7,7 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class StockEntity {
+public class DonationEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

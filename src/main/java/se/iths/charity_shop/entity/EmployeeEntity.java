@@ -1,4 +1,4 @@
-package java.se.iths.charity_shop.entity;
+package se.iths.charity_shop.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
