@@ -1,4 +1,4 @@
-package java.se.iths.charity_shop.repository;
+package se.iths.charity_shop.repository;
 
 import org.springframework.data.repository.CrudRepository;
 

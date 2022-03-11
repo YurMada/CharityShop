@@ -1,9 +1,7 @@
-package java.se.iths.charity_shop.service;
+package se.iths.charity_shop.service;
 
 import org.springframework.stereotype.Service;
-
-import java.se.iths.charity_shop.entity.UserEntity;
-import java.se.iths.charity_shop.repository.UserRepository;
+import se.iths.charity_shop.entity.UserEntity;
 
 @Service
 public class UserService {

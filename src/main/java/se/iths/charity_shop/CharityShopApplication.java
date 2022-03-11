@@ -1,4 +1,4 @@
-package java.se.iths.charity_shop;
+package se.iths.charity_shop;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
