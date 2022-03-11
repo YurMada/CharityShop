@@ -1,5 +1,6 @@
 package java.se.iths.charity_shop.entity;
 
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
