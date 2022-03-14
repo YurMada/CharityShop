@@ -24,6 +24,7 @@ public class RoleController {
     @DeleteMapping("{id}")
     public void deleteRole(@PathVariable Long id){roleService.deleteRole(id);}
 
+
     @GetMapping("{id}")
     public Optional<RoleEntity> findRoleById(@PathVariable Long id){
         return roleService.findRoleById(id);

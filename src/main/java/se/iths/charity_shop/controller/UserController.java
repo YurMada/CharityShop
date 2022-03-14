@@ -6,6 +6,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import se.iths.charity_shop.entity.UserEntity;
+import se.iths.charity_shop.exception.ApiRequestException;
+import se.iths.charity_shop.repository.UserRepository;
 import se.iths.charity_shop.service.UserService;
 
 import java.util.Optional;
@@ -16,7 +18,6 @@ import java.util.Optional;
 public class UserController {
     UserService userService;
     Logger logger= LoggerFactory.getLogger(UserController.class);
-
     public UserController(UserService userService){
         this.userService=userService;}
 
@@ -44,11 +45,8 @@ public class UserController {
     }
 
     @GetMapping("")
-    public Iterable<UserEntity> findAllUsers(){
+    public Iterable<UserEntity> findAllUsers() {
         return userService.findAllUsers();
-
     }
-
-
 }
 
