@@ -19,7 +19,10 @@ public class RoleService {
         roleRepository.deleteById(id);
     }
 
-    public Optional<RoleEntity> findRoleById(Long id) {return roleRepository.findById(id);}
+    public Optional<RoleEntity> findRoleById(Long id) {
+
+        return roleRepository.findById(id);
+    }
 
     public Iterable<RoleEntity> findAll() {return roleRepository.findAll();}
 }
