@@ -1,31 +1,57 @@
 package se.iths.charity_shop.exception;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.http.HttpStatus;
 
-import java.time.ZonedDateTime;
+import java.time.LocalDateTime;
 
 public class ApiException {
-    private final String message;
-    //private final Throwable throwable;
-    private final HttpStatus httpStatus;
-    private final ZonedDateTime zonedDateTime;
+    private  HttpStatus status;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy hh:mm:ss")
+    private LocalDateTime timestamp;
+    private String message;
+    private String debugMessage;
 
-    public ApiException(String message, HttpStatus httpStatus, ZonedDateTime zonedDateTime) {
+    public ApiException() {
+        this.timestamp = LocalDateTime.now();
+    }
+
+    public ApiException(HttpStatus httpStatus, String message, Throwable ex) {
+        this();
+        this.status = httpStatus;
         this.message = message;
-        this.httpStatus = httpStatus;
-        this.zonedDateTime = zonedDateTime;
+        this.debugMessage = ex.getLocalizedMessage();
+    }
+
+    public HttpStatus getStatus() {
+        return status;
+    }
+
+    public LocalDateTime getTimestamp() {
+        return timestamp;
     }
 
     public String getMessage() {
         return message;
     }
 
-
-    public HttpStatus getHttpStatus() {
-        return httpStatus;
+    public String getDebugMessage() {
+        return debugMessage;
     }
 
-    public ZonedDateTime getZonedDateTime() {
-        return zonedDateTime;
+    public void setStatus(HttpStatus status) {
+        this.status = status;
+    }
+
+    public void setTimestamp(LocalDateTime timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public void setDebugMessage(String debugMessage) {
+        this.debugMessage = debugMessage;
     }
 }

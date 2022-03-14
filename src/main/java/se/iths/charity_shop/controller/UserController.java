@@ -45,15 +45,8 @@ public class UserController {
     }
 
     @GetMapping("")
-    public Iterable<UserEntity> findAllUsers(){
-       if (userService.findAllUsers()==null)
-       {
-        throw new ApiRequestException("oops");
-       }
-       else
-           return userService.findAllUsers();
+    public Iterable<UserEntity> findAllUsers() {
+        return userService.findAllUsers();
     }
-
-
 }
 
