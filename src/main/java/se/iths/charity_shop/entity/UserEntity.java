@@ -1,9 +1,9 @@
 package se.iths.charity_shop.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity
 public class UserEntity {
 
@@ -13,6 +13,14 @@ public class UserEntity {
     private String username;
     private String email;
     private String password;
+
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
+    private Set<RoleEntity> roles = new HashSet<>();
+
+    public void addRoles(RoleEntity roleEntity) {
+        roles.add(roleEntity);
+        roleEntity.getUsers().add(this);
+    }
 
     public String getUsername() {
         return username;
@@ -36,5 +44,12 @@ public class UserEntity {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Set<RoleEntity> getRoles() {
+        return roles;
+    }
+    public void setRoles(Set<RoleEntity> roles) {
+        this.roles = roles;
     }
 }
