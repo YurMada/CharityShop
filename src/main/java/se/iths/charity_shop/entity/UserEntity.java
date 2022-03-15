@@ -14,6 +14,10 @@ public class UserEntity {
     private String email;
     private String password;
 
+    public Long getId() {
+        return id;
+    }
+    
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
     private Set<RoleEntity> roles = new HashSet<>();
 
