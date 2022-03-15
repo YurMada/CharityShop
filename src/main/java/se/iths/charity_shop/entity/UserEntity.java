@@ -14,6 +14,10 @@ public class UserEntity {
     private String email;
     private String password;
 
+    public Long getId() {
+        return id;
+    }
+
     public String getUsername() {
         return username;
     }
