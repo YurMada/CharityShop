@@ -4,6 +4,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import se.iths.charity_shop.entity.StockEntity;
+import se.iths.charity_shop.exception.BadRequestException;
 import se.iths.charity_shop.service.StockService;
 import java.util.Optional;
 
@@ -18,6 +19,9 @@ public class StockController {
 
     @PostMapping
     public ResponseEntity<StockEntity> createStock(@RequestBody StockEntity stockEntity){
+        if (stockEntity == null)
+            throw new BadRequestException("This field cannot be empty");
+
         StockEntity createdStock = stockService.createStock(stockEntity);
         return new ResponseEntity(createdStock, HttpStatus.CREATED);
     }

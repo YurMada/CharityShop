@@ -6,8 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import se.iths.charity_shop.entity.UserEntity;
-import se.iths.charity_shop.exception.ApiRequestException;
-import se.iths.charity_shop.repository.UserRepository;
+import se.iths.charity_shop.exception.BadRequestException;
 import se.iths.charity_shop.service.UserService;
 
 import java.util.Optional;
@@ -23,6 +22,9 @@ public class UserController {
 
     @PostMapping("signup")
     public ResponseEntity<UserEntity> createUser(@RequestBody UserEntity userEntity){
+        if (userEntity == null)
+            throw new BadRequestException("This field cannot be empty");
+
         UserEntity createdUser=userService.createUser(userEntity);
         logger.trace("vi loggar på TRACE-nivå");
         logger.debug("wi loggar på DEBUG-nivå");
@@ -45,8 +47,7 @@ public class UserController {
     }
 
     @GetMapping("")
-    public Iterable<UserEntity> findAllUsers() {
-        return userService.findAllUsers();
+    public Iterable<UserEntity> findAllUsers() {return userService.findAllUsers();
     }
 }
 
