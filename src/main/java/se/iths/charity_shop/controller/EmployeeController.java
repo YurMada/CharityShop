@@ -4,6 +4,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import se.iths.charity_shop.entity.EmployeeEntity;
+import se.iths.charity_shop.exception.BadRequestException;
 import se.iths.charity_shop.service.EmployeeService;
 import java.util.Optional;
 
@@ -17,6 +18,9 @@ public class EmployeeController {
 
     @PostMapping
     public ResponseEntity<EmployeeEntity> createEmployee(@RequestBody EmployeeEntity employeeEntity){
+        if (employeeEntity == null)
+            throw new BadRequestException("This field cannot be empty");
+
         EmployeeEntity createdEmployee = employeeService.createEmployee(employeeEntity);
         return new ResponseEntity(createdEmployee, HttpStatus.CREATED);
     }

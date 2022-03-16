@@ -4,6 +4,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import se.iths.charity_shop.entity.RoleEntity;
+import se.iths.charity_shop.exception.BadRequestException;
 import se.iths.charity_shop.service.RoleService;
 import java.util.Optional;
 
@@ -17,6 +18,9 @@ public class RoleController {
 
     @PostMapping
     public ResponseEntity<RoleEntity> createRole(@RequestBody RoleEntity roleEntity){
+        if (roleEntity == null)
+            throw new BadRequestException("This field cannot be empty");
+
         RoleEntity createdRole = roleService.createRole(roleEntity);
         return new ResponseEntity(createdRole, HttpStatus.CREATED);
     }

@@ -4,6 +4,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import se.iths.charity_shop.entity.DonationEntity;
+import se.iths.charity_shop.exception.BadRequestException;
 import se.iths.charity_shop.service.DonationService;
 import java.util.Optional;
 
@@ -18,6 +19,9 @@ public class DonationController {
 
     @PostMapping
     public ResponseEntity<DonationEntity> createDonation(@RequestBody DonationEntity donationEntity){
+        if (donationEntity == null)
+            throw new BadRequestException("This field cannot be empty");
+
         DonationEntity createdDonation = donationService.createDonation(donationEntity);
         return new ResponseEntity(createdDonation, HttpStatus.CREATED);
     }
