@@ -23,9 +23,6 @@ public class StockEntity {
         this.amount = amount;
     }
 
-    public void setDonationEntity(Set<DonationEntity> donationEntity) {
-        this.donationEntity = donationEntity;
-    }
     public void setCharityEntity(Set<CharityEntity> charityEntity) {
         this.charityEntity = charityEntity;
     }
