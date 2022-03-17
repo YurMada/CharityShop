@@ -17,7 +17,10 @@ public class UserEntity {
     public Long getId() {
         return id;
     }
-    
+
+    @OneToOne(mappedBy = "userEntity")
+    private EmployeeEntity employeeEntity;
+
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
     private Set<RoleEntity> roles = new HashSet<>();
 
@@ -55,5 +58,13 @@ public class UserEntity {
     }
     public void setRoles(Set<RoleEntity> roles) {
         this.roles = roles;
+    }
+
+    public EmployeeEntity getEmployeeEntity() {
+        return employeeEntity;
+    }
+
+    public void setEmployeeEntity(EmployeeEntity employeeEntity) {
+        this.employeeEntity = employeeEntity;
     }
 }

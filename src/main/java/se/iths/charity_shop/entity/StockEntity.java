@@ -12,9 +12,9 @@ public class StockEntity {
     private Long id;
     private double amount;
 
-    @OneToMany(mappedBy = "stockEntity", fetch = FetchType.LAZY,
+@OneToMany(mappedBy = "stocks", fetch = FetchType.LAZY,
             cascade = CascadeType.ALL)
-    private Set<DonationEntity> donationEntity;
+    private Set<CharityEntity> charityEntity;
 
     public double getAmount() {
         return amount;
@@ -24,14 +24,11 @@ public class StockEntity {
         this.amount = amount;
     }
 
-    public Set<DonationEntity> getDonationEntity() {
-        return donationEntity;
-    }
-
     public void setDonationEntity(Set<DonationEntity> donationEntity) {
         this.donationEntity = donationEntity;
     }
-
-
+    public void setCharityEntity(Set<CharityEntity> charityEntity) {
+        this.charityEntity = charityEntity;
+    }
 
 }

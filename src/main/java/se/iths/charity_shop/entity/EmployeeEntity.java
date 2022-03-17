@@ -1,9 +1,6 @@
 package se.iths.charity_shop.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class EmployeeEntity {
@@ -13,6 +10,9 @@ public class EmployeeEntity {
     private String username;
     private String email;
     private String password;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    private UserEntity userEntity;
 
     public String getUsername() {
         return username;
@@ -36,5 +36,13 @@ public class EmployeeEntity {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public UserEntity getUserEntity() {
+        return userEntity;
+    }
+
+    public void setUserEntity(UserEntity userEntity) {
+        this.userEntity = userEntity;
     }
 }

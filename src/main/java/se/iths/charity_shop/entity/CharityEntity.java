@@ -1,10 +1,7 @@
 package se.iths.charity_shop.entity;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class CharityEntity {
@@ -14,6 +11,9 @@ public class CharityEntity {
     private Long id;
     private double amount;
 
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    private StockEntity stocks;
+
     public double getAmount() {
         return amount;
     }
@@ -22,4 +22,11 @@ public class CharityEntity {
         this.amount = amount;
     }
 
+    public StockEntity getStocks() {
+        return stocks;
+    }
+
+    public void setStocks(StockEntity stocks) {
+        this.stocks = stocks;
+    }
 }
