@@ -12,7 +12,7 @@ public class StockEntity {
     private Long id;
     private double amount;
 
-@OneToMany(cascade = CascadeType.ALL)
+@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     private Set<CharityEntity> charityEntity;
 
     public double getAmount() {
