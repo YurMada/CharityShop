@@ -12,8 +12,6 @@ public class StockEntity {
     private Long id;
     private double amount;
 
-@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-    private Set<CharityEntity> charityEntity= new HashSet<>();
 
     public double getAmount() {
         return amount;
@@ -23,8 +21,6 @@ public class StockEntity {
         this.amount = amount;
     }
 
-    public void setCharityEntity(Set<CharityEntity> charityEntity) {
-        this.charityEntity = charityEntity;
     }
 
 }
