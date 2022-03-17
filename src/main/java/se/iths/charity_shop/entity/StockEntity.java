@@ -13,7 +13,7 @@ public class StockEntity {
     private double amount;
 
 @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-    private Set<CharityEntity> charityEntity;
+    private Set<CharityEntity> charityEntity= new HashSet<>();
 
     public double getAmount() {
         return amount;
