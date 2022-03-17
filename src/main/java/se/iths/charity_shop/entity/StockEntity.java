@@ -1,10 +1,8 @@
 package se.iths.charity_shop.entity;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class StockEntity {
@@ -14,6 +12,10 @@ public class StockEntity {
     private Long id;
     private double amount;
 
+    @OneToMany(mappedBy = "stocks", fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
+    private Set<CharityEntity> charityEntity;
+
     public double getAmount() {
         return amount;
     }
@@ -22,6 +24,12 @@ public class StockEntity {
         this.amount = amount;
     }
 
+    public Set<CharityEntity> getCharityEntity() {
+        return charityEntity;
+    }
 
+    public void setCharityEntity(Set<CharityEntity> charityEntity) {
+        this.charityEntity = charityEntity;
+    }
 
 }
