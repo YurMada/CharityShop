@@ -2,7 +2,8 @@ package se.iths.charity_shop.entity;
 
 
 import javax.persistence.*;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class StockEntity {
@@ -12,9 +13,11 @@ public class StockEntity {
     private Long id;
     private double amount;
 
-    @OneToMany(mappedBy = "stocks", fetch = FetchType.LAZY,
-            cascade = CascadeType.ALL)
-    private Set<CharityEntity> charityEntity;
+    @OneToMany(mappedBy = "stocks", cascade = CascadeType.ALL)
+    private List<CharityEntity> charities = new ArrayList<>();
+
+    @OneToMany(mappedBy = "stocks", cascade = CascadeType.ALL)
+    private List<DonationEntity> donations = new ArrayList<>();
 
     public double getAmount() {
         return amount;
@@ -24,12 +27,19 @@ public class StockEntity {
         this.amount = amount;
     }
 
-    public Set<CharityEntity> getCharityEntity() {
-        return charityEntity;
+    public List<CharityEntity> getCharities() {
+        return charities;
     }
 
-    public void setCharityEntity(Set<CharityEntity> charityEntity) {
-        this.charityEntity = charityEntity;
+    public void setCharities(List<CharityEntity> charities) {
+        this.charities = charities;
     }
 
+    public List<DonationEntity> getDonations() {
+        return donations;
+    }
+
+    public void setDonations(List<DonationEntity> donations) {
+        this.donations = donations;
+    }
 }

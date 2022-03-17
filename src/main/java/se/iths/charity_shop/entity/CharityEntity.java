@@ -11,8 +11,11 @@ public class CharityEntity {
     private Long id;
     private double amount;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne
     private StockEntity stocks;
+
+    public CharityEntity() {
+    }
 
     public double getAmount() {
         return amount;
