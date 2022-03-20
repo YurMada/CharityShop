@@ -28,6 +28,10 @@ public class UserEntity {
         roles.add(roleEntity);
         roleEntity.getUsers().add(this);
     }
+    public void removeRole(RoleEntity roleEntity) {
+        roles.remove(roleEntity);
+        roleEntity.getUsers().remove(this);
+    }
 
     public String getUsername() {
         return username;

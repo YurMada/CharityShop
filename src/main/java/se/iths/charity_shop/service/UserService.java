@@ -2,7 +2,9 @@ package se.iths.charity_shop.service;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import se.iths.charity_shop.entity.RoleEntity;
 import se.iths.charity_shop.entity.UserEntity;
+import se.iths.charity_shop.repository.RoleRepository;
 import se.iths.charity_shop.repository.UserRepository;
 
 import java.util.Optional;
@@ -10,16 +12,20 @@ import java.util.Optional;
 @Service
 public class UserService {
 
+    private final RoleRepository roleRepository;
     UserRepository userRepository;
     private BCryptPasswordEncoder passwordEncoder =new BCryptPasswordEncoder();
 
 
-    public UserService(UserRepository userRepository) {
+    public UserService(RoleRepository roleRepository, UserRepository userRepository) {
+        this.roleRepository = roleRepository;
         this.userRepository = userRepository;
     }
 
     public UserEntity createUser(UserEntity userEntity) {
         userEntity.setPassword(passwordEncoder.encode(userEntity.getPassword()));
+        RoleEntity roleToAdd=roleRepository.findByRole("ROLE_ADMIN"); //sätt som en variabel om inte alla ska ha user från början
+        userEntity.addRoles(roleToAdd);
         return userRepository.save(userEntity);
     }
 
