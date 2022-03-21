@@ -1,6 +1,7 @@
 package se.iths.charity_shop.service;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import se.iths.charity_shop.entity.RoleEntity;
 import se.iths.charity_shop.entity.UserEntity;
@@ -13,13 +14,14 @@ import java.util.Optional;
 public class UserService {
 
     private final RoleRepository roleRepository;
+
     UserRepository userRepository;
-    private BCryptPasswordEncoder passwordEncoder =new BCryptPasswordEncoder();
+    private PasswordEncoder passwordEncoder;
 
-
-    public UserService(RoleRepository roleRepository, UserRepository userRepository) {
+    public UserService(RoleRepository roleRepository, UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.roleRepository = roleRepository;
         this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     public UserEntity createUser(UserEntity userEntity) {

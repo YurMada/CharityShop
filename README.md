@@ -6,7 +6,7 @@
 [![forthebadge](https://forthebadge.com/images/badges/made-with-java.svg)](https://forthebadge.com)
 
 
-![mainImage](src/main/resources/images/test.png)
+![mainImage](src/main/resources/static/images/test.png)
 
 Charity management project as a Spring Boot application that manages employees, users, roles,
 donations, stocks and charities, stored in a MySQL.

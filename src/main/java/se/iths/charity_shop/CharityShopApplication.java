@@ -15,11 +15,16 @@ public class CharityShopApplication {
     }
 
     @Bean
-    public CommandLineRunner setUpRoles(RoleRepository roleRepository){
+    public CommandLineRunner setUpRoles(RoleRepository roleRepository) {
         return (args) -> {
-            roleRepository.save(new RoleEntity("ROLE_ADMIN"));
-            roleRepository.save(new RoleEntity("ROLE_USER"));
-            roleRepository.save(new RoleEntity("ROLE_ECONOMY"));
+            if (roleRepository.findByRole("ROLE_ADMIN") == null)
+                roleRepository.save(new RoleEntity("ROLE_ADMIN"));
+
+            if (roleRepository.findByRole("ROLE_USER") == null)
+                roleRepository.save(new RoleEntity("ROLE_USER"));
+
+            if (roleRepository.findByRole("ROLE_ECONOMY") == null)
+                roleRepository.save(new RoleEntity("ROLE_ECONOMY"));
         };
     }
 

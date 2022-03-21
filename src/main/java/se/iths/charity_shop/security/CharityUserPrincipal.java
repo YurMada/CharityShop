@@ -2,9 +2,11 @@ package se.iths.charity_shop.security;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import se.iths.charity_shop.entity.RoleEntity;
 import se.iths.charity_shop.entity.UserEntity;
+import se.iths.charity_shop.exception.NotAllowedException;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -14,6 +16,8 @@ import java.util.Set;
 
 public class CharityUserPrincipal implements UserDetails {
 
+
+    User user;
     private UserEntity userEntity;
 
     public CharityUserPrincipal(UserEntity userEntity) {
@@ -23,17 +27,17 @@ public class CharityUserPrincipal implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-    /*    Set<RoleEntity> roles =userEntity.getRoles();
-        Collection<GrantedAuthority> grantedAuthorities= new ArrayList<>(roles.size());
-        for (RoleEntity role:roles) {
-            grantedAuthorities.add(new SimpleGrantedAuthority(role.getRole().toUpperCase()));
-        } return grantedAuthorities;
-    }*/
-        return null;
+
+        return userEntity.getRoles().stream()
+                .map(RoleEntity::getRole)
+                .map(String::toUpperCase)
+                .map(SimpleGrantedAuthority::new)
+                .toList();
     }
+
     @Override
     public String getPassword() {
-       return this.userEntity.getPassword();
+        return this.userEntity.getPassword();
     }
 
     @Override
