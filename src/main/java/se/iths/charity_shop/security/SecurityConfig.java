@@ -9,40 +9,32 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.factory.PasswordEncoderFactories;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.SecurityFilterChain;
 
 
 @Configuration
 @EnableWebSecurity
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
+public class SecurityConfig  {
 
-    private final CharityUserDetailsService userDetailsService;
 
-    public SecurityConfig(CharityUserDetailsService userDetailsService) {
-        this.userDetailsService = userDetailsService;
+
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return PasswordEncoderFactories.createDelegatingPasswordEncoder();
     }
 
 
-
-@Bean
-    public DaoAuthenticationProvider authenticationProvider() {
-        DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
-        provider.setUserDetailsService(userDetailsService);
-        provider.setPasswordEncoder(new BCryptPasswordEncoder());
-        return provider;
-
-    }
-
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception{
-        auth.authenticationProvider(authenticationProvider());
-    }
-
-    @Override
-    protected void configure(HttpSecurity http) throws Exception{
-        http
+    @Bean
+    protected SecurityFilterChain configure(HttpSecurity http) throws Exception{
+       return http
                 .csrf().disable()
+                .httpBasic()
+                .and()
                 .authorizeRequests()
                 .antMatchers("/", "home","/users/signup").permitAll()
+                .antMatchers("/admin").hasRole("ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
@@ -51,7 +43,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .logout()
                 .invalidateHttpSession(true)
                 .clearAuthentication(true)
-                .permitAll();
+                .permitAll().and().build();
 
     }
 }

@@ -1,6 +1,7 @@
 package se.iths.charity_shop.view;
 
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -14,4 +15,8 @@ public class MvcConfig implements WebMvcConfigurer {
         registry.addViewController("/admin").setViewName("admin");
     }
 
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        WebMvcConfigurer.super.addResourceHandlers(registry);
+    }
 }

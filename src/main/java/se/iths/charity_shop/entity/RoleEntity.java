@@ -1,5 +1,7 @@
 package se.iths.charity_shop.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -14,6 +16,14 @@ public class RoleEntity {
     @ManyToMany(mappedBy = "roles")
     private Set<UserEntity> users = new HashSet<>();
 
+    public RoleEntity(String role) {
+        this.role = role;
+    }
+
+    public RoleEntity() {
+
+    }
+
     public String getRole() {
         return role;
     }
@@ -25,8 +35,14 @@ public class RoleEntity {
     public Set<UserEntity> getUsers() {
         return users;
     }
+
+    @JsonIgnore
     public RoleEntity setUsers(Set<UserEntity> users) {
         this.users = users;
         return this;
+    }
+
+    public Long getId() {
+        return id;
     }
 }

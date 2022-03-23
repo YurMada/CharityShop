@@ -21,12 +21,16 @@ public class UserEntity {
     @OneToOne(mappedBy = "userEntity")
     private EmployeeEntity employeeEntity;
 
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH},fetch = FetchType.EAGER)
     private Set<RoleEntity> roles = new HashSet<>();
 
     public void addRoles(RoleEntity roleEntity) {
         roles.add(roleEntity);
         roleEntity.getUsers().add(this);
+    }
+    public void removeRole(RoleEntity roleEntity) {
+        roles.remove(roleEntity);
+        roleEntity.getUsers().remove(this);
     }
 
     public String getUsername() {
