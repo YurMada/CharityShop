@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Profile;
 public class MessageConfig {
 
     @Bean
-    public Queue massage() {
+    public Queue message() {
         return new Queue("message");
     }
 

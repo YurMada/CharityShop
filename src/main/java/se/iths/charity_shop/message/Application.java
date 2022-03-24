@@ -15,8 +15,8 @@ public class Application {
     @Bean
     public CommandLineRunner usage() {
         return args -> {
-            System.out.println("This app uses Spring Profiles to control its behavior.\n");
-                    System.out.println("Sample usage: java -jar rabbit-tutorials.jar --spring.profiles.active=hello-world,sender");
+            System.out.println("Using RabbitMq with Spring Profiles");
+
         };
     }
 
@@ -26,7 +26,5 @@ public class Application {
         return new Runner();
     }
 
-    public static void main(String[] args) throws Exception {
-        SpringApplication.run(Application.class, args);
-    }
+
 }
