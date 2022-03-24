@@ -6,12 +6,8 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import se.iths.charity_shop.entity.RoleEntity;
 import se.iths.charity_shop.entity.UserEntity;
-import se.iths.charity_shop.exception.NotAllowedException;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Locale;
-import java.util.Set;
 
 
 public class CharityUserPrincipal implements UserDetails {
@@ -27,7 +23,8 @@ public class CharityUserPrincipal implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-
+        if(getAuthorities()==null)
+            throw new SecurityException("Invalid access");
         return userEntity.getRoles().stream()
                 .map(RoleEntity::getRole)
                 .map(String::toUpperCase)
