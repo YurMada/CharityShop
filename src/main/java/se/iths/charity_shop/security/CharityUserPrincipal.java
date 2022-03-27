@@ -23,8 +23,6 @@ public class CharityUserPrincipal implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        if(getAuthorities()==null)
-            throw new SecurityException("Invalid access");
         return userEntity.getRoles().stream()
                 .map(RoleEntity::getRole)
                 .map(String::toUpperCase)
