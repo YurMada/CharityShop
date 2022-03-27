@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import se.iths.charity_shop.entity.UserEntity;
 import se.iths.charity_shop.exception.BadRequestException;
+import se.iths.charity_shop.exception.IdNotFoundException;
 import se.iths.charity_shop.service.UserService;
 
 import java.util.Optional;
@@ -36,12 +37,16 @@ public class UserController {
 
     @DeleteMapping("{id}")
     public void deleteUser(@PathVariable Long id){
+        if (!userService.findUserById(id).isPresent()){
+            throw new IdNotFoundException("Sorry, The user:id could not be found");}
+        else
         userService.deleteUser(id);
     }
 
 
     @GetMapping("{id}")
     public Optional<UserEntity> findUserById(@PathVariable Long id){
+
         return userService.findUserById(id);
 
     }
