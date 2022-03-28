@@ -7,6 +7,10 @@ import java.util.Set;
 @Entity
 public class UserEntity {
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
