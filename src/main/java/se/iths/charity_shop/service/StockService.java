@@ -8,6 +8,7 @@ import java.util.Optional;
 @Service
 public class StockService {
 
+
     StockRepository stockRepository;
 
     public StockService(StockRepository stockRepository) {this.stockRepository = stockRepository;}
