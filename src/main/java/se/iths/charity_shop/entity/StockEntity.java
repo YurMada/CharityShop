@@ -19,7 +19,7 @@ public class StockEntity {
     @OneToMany(mappedBy = "stocks", cascade = CascadeType.ALL)
     private List<DonationEntity> donations = new ArrayList<>();
 
-    public double getAmount() {
+    public Double getAmount() {
         return amount;
     }
 
@@ -41,5 +41,13 @@ public class StockEntity {
 
     public void setDonations(List<DonationEntity> donations) {
         this.donations = donations;
+    }
+
+    @Override
+    public String toString() {
+        return "StockEntity{" +
+                "id=" + id +
+                ", amount=" + amount +
+                '}';
     }
 }
