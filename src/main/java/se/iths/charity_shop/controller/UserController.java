@@ -27,11 +27,7 @@ public class UserController {
             throw new BadRequestException("This field cannot be empty");
 
         UserEntity createdUser=userService.createUser(userEntity);
-        logger.trace("vi loggar på TRACE-nivå");
-        logger.debug("wi loggar på DEBUG-nivå");
-        logger.info("vi loggar på INFO-nivå");
-        logger.warn("vi loggar på WARN-nivå");
-        logger.error("vi loggar på ERROR-nivå");
+        logger.debug("vi loggar på DEBUG-nivå");
         return new ResponseEntity(createdUser, HttpStatus.CREATED);
     }
 
