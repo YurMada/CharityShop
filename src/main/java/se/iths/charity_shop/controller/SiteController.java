@@ -28,12 +28,13 @@ public class SiteController {
 
     @RequestMapping(value = "/economy", method = RequestMethod.GET)
     public String read(Model model) {
-        //double donations = donationService.getTotalAmountDonation();
-       // double charities = charityService.getTotalAmountDonation();
-       //String economy= String.valueOf(sum(charities,donations));
-       // model.addAttribute("currentAmount", (economy));
+        Integer donations = donationService.getTotalAmountDonation();
+        Integer charities = charityService.getTotalAmountDonation();
+        Integer balance = donations-charities;
+        String economy= String.valueOf(balance);
+        model.addAttribute("currentAmount", (economy));
 
-        double totalAmount = 0;
+        /*double totalAmount = 0;
         Iterable<DonationEntity> donations = donationService.findAll();
         for (var donation : donations)
             totalAmount += donation.getAmount();
@@ -42,7 +43,7 @@ public class SiteController {
         for (var charity : charities)
             totalAmount -= charity.getAmount();
 
-        model.addAttribute("currentAmount", (totalAmount));
+        model.addAttribute("currentAmount", (totalAmount));*/
         return "economy";
     }
 

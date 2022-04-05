@@ -34,7 +34,7 @@ public class CharityService {
     public Iterable<CharityEntity> findAll() {
         return charityRepository.findAll();
     }
-    public double getTotalAmountDonation() {
+    public Integer getTotalAmountDonation() {
         return charityRepository.getTotalAmount();
     }
 }
