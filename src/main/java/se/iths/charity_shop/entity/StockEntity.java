@@ -43,6 +43,10 @@ public class StockEntity {
         this.donations = donations;
     }
 
+    public Long getId() {
+        return id;
+    }
+
     @Override
     public String toString() {
         return "StockEntity{" +

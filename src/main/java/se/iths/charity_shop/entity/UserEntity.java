@@ -1,5 +1,8 @@
 package se.iths.charity_shop.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -16,8 +19,8 @@ public class UserEntity {
     private Long id;
     private String username;
     private String email;
+    @JsonProperty(access= JsonProperty.Access.WRITE_ONLY)
     private String password;
-
     public Long getId() {
         return id;
     }
@@ -25,13 +28,14 @@ public class UserEntity {
     @OneToOne(mappedBy = "userEntity")
     private EmployeeEntity employeeEntity;
 
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH},fetch = FetchType.EAGER)
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH}, fetch = FetchType.EAGER)
     private Set<RoleEntity> roles = new HashSet<>();
 
     public void addRoles(RoleEntity roleEntity) {
         roles.add(roleEntity);
         roleEntity.getUsers().add(this);
     }
+
     public void removeRole(RoleEntity roleEntity) {
         roles.remove(roleEntity);
         roleEntity.getUsers().remove(this);
@@ -64,6 +68,7 @@ public class UserEntity {
     public Set<RoleEntity> getRoles() {
         return roles;
     }
+
     public void setRoles(Set<RoleEntity> roles) {
         this.roles = roles;
     }

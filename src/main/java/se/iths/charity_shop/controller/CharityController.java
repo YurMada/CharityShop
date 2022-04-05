@@ -16,11 +16,13 @@ import java.util.Optional;
 public class CharityController {
 
     CharityService charityService;
-    public CharityController(CharityService charityService){
-        this.charityService = charityService;}
+
+    public CharityController(CharityService charityService) {
+        this.charityService = charityService;
+    }
 
     @PostMapping
-    public ResponseEntity<CharityEntity> createCharity(@RequestBody CharityEntity charityEntity){
+    public ResponseEntity<CharityEntity> createCharity(@RequestBody CharityEntity charityEntity) {
         if (charityEntity == null)
             throw new BadRequestException("This field cannot be empty");
 
@@ -29,21 +31,27 @@ public class CharityController {
     }
 
     @DeleteMapping("{id}")
-    public void deleteCharity(@PathVariable Long id){
+    public void deleteCharity(@PathVariable Long id) {
         charityService.deleteCharity(id);
     }
 
 
     @GetMapping("{id}")
-    public Optional<CharityEntity> findCharityById(@PathVariable Long id){
+    public Optional<CharityEntity> findCharityById(@PathVariable Long id) {
         return charityService.findCharityById(id);
 
     }
 
     @GetMapping
-    public Iterable<CharityEntity> findAll(){
+    public Iterable<CharityEntity> findAll() {
         return charityService.findAll();
 
+    }
+
+    @PutMapping("{id}")
+    private CharityEntity update(@RequestBody CharityEntity charityEntity) {
+        charityService.saveOrUpdate(charityEntity);
+        return charityEntity;
     }
 }
 

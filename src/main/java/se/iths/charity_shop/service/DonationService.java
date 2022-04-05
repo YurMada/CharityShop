@@ -26,4 +26,8 @@ public class DonationService {
     public Optional<DonationEntity> findDonationById(Long id) {return donationRepository.findById(id);}
 
     public Iterable<DonationEntity> findAll() {return donationRepository.findAll();}
+
+    public double getTotalAmountDonation(){
+        return donationRepository.getTotalAmount();
+    }
 }
