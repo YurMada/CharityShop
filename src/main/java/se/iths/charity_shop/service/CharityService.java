@@ -18,6 +18,10 @@ public class CharityService {
         return charityRepository.save(charityEntity);
     }
 
+    public void saveOrUpdate(CharityEntity charityEntity)
+    {
+        charityRepository.save(charityEntity);
+    }
     public void deleteCharity(Long id) {
         Optional<CharityEntity> foundCharity = charityRepository.findById(id);
         charityRepository.deleteById(id);
@@ -30,5 +34,7 @@ public class CharityService {
     public Iterable<CharityEntity> findAll() {
         return charityRepository.findAll();
     }
-
+    public int getTotalAmountDonation() {
+        return charityRepository.getTotalAmount();
+    }
 }

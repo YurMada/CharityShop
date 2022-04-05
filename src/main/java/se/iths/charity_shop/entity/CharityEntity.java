@@ -32,4 +32,14 @@ public class CharityEntity {
     public void setStocks(StockEntity stocks) {
         this.stocks = stocks;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
 }
