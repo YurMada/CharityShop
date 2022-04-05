@@ -8,6 +8,6 @@ import se.iths.charity_shop.entity.CharityEntity;
 @Repository
 public interface CharityRepository extends CrudRepository<CharityEntity, Long>{
     @Query("SELECT SUM(m.amount) FROM CharityEntity m")
-    public double getTotalAmount();
+     int getTotalAmount();
 
 }

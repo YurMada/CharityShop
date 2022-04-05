@@ -27,7 +27,7 @@ public class DonationService {
 
     public Iterable<DonationEntity> findAll() {return donationRepository.findAll();}
 
-    public double getTotalAmountDonation(){
+    public int getTotalAmountDonation(){
         return donationRepository.getTotalAmount();
     }
 }
