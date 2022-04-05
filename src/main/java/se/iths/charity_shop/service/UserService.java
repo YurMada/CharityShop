@@ -4,6 +4,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import se.iths.charity_shop.entity.RoleEntity;
+import se.iths.charity_shop.entity.StockEntity;
 import se.iths.charity_shop.entity.UserEntity;
 import se.iths.charity_shop.repository.RoleRepository;
 import se.iths.charity_shop.repository.UserRepository;
@@ -29,6 +30,11 @@ public class UserService {
         RoleEntity roleToAdd=roleRepository.findByRole("ROLE_ADMIN"); //sätt som en variabel om inte alla ska ha user från början
         userEntity.addRoles(roleToAdd);
         return userRepository.save(userEntity);
+    }
+
+    public void saveOrUpdate(UserEntity userEntity)
+    {
+        userRepository.save(userEntity);
     }
 
     public void deleteUser(Long id) {
