@@ -3,7 +3,7 @@ package se.iths.charity_shop.entity;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
+
 
 class StockEntityTest {
 
@@ -24,4 +24,5 @@ class StockEntityTest {
         assertThat(stockEntity.getAmount()).isEqualTo(1000);
 
     }
+
 }
