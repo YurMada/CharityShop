@@ -16,4 +16,12 @@ class StockEntityTest {
         assertThat(stockEntity.getId()).isEqualTo(1L);
     }
 
+    @Test
+    void getAmountShouldReturn1000(){
+        StockEntity stockEntity = new StockEntity();
+        stockEntity.setAmount(1000);
+
+        assertThat(stockEntity.getAmount()).isEqualTo(1000);
+
+    }
 }
