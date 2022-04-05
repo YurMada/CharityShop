@@ -28,9 +28,9 @@ public class SiteController {
 
     @RequestMapping(value = "/economy", method = RequestMethod.GET)
     public String read(Model model) {
-        Integer donations = donationService.getTotalAmountDonation();
-        Integer charities = charityService.getTotalAmountDonation();
-        Integer balance = donations-charities;
+        int donations = donationService.getTotalAmountDonation();
+        int charities = charityService.getTotalAmountDonation();
+        int balance = donations-charities;
         String economy= String.valueOf(balance);
         model.addAttribute("currentAmount", (economy));
 
