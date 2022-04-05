@@ -15,7 +15,7 @@ public class Application {
     @Bean
     public CommandLineRunner usage() {
         return args -> {
-            System.out.println("Using RabbitMq with Spring Profiles");
+            System.out.println("Up and running");
 
         };
     }
