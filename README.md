@@ -7,20 +7,35 @@
 
 
 ![mainImage](src/main/resources/static/images/test.png)
-
-Charity management project as a Spring Boot application that manages employees, users, roles,
+```
+Charity Management Project as a Spring Boot application that manages employees, users, roles,
 donations, stocks and charities, stored in a MySQL.
+```
 
-Each role has different access for the application and passwords are required for full access.
+##  Deployment :
 
-Agenda :
-- Entity: Employees, Users, Roles, Donations, Stocks and Charities. 
-- Database relations 
-- Spring security 
-- Custom exceptions
-- Thymeleaf frontend
-- Implementation of JMS
-- Various levels of accessibility
+
+
+
+
+- Clone the repository
+    - Go to your favourite Integrated Development Environment.
+    - Type the following: `https://github.com/YurMada/CharityShop.git`
+
+
+![](.github/images/TryOne.gif)
+
+### How to start application :
+
+```
+docker-compose up --build
+```
+
+![](.github/images/TryTwo.gif)
+
+### Accessing Webpage via Docker :
+
+![](.github/images/TryThree.gif)
  
 
 [![forthebadge](https://forthebadge.com/images/badges/powered-by-coffee.svg)](https://forthebadge.com)
