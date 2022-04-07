@@ -8,10 +8,11 @@
 <h1 th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]]!</h1>
 <p>This is the admin console, restricted to administrators only.</p>
 
-
 <a href="economy">
     <button>Current amount</button>
 </a>
+
+<p><a href="http://localhost:8080/message?empName=amount1">Donation</a></p>
 <form th:action="@{/logout}" method="post">
     <input type="submit" value="Sign Out"/>
 </form>

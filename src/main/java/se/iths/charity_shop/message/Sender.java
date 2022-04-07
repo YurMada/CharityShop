@@ -1,21 +1,28 @@
 package se.iths.charity_shop.message;
-import org.springframework.amqp.core.Queue;
-import org.springframework.amqp.rabbit.core.RabbitTemplate;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Scheduled;
 
+
+import org.springframework.amqp.core.AmqpTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
+
+
+import se.iths.charity_shop.entity.DonationEntity;
+
+@Service
 public class Sender {
 
     @Autowired
-    private RabbitTemplate template;
+    private AmqpTemplate rabbitTemplate;
 
-    @Autowired
-    private Queue queue;
+    @Value("${javainuse.rabbitmq.exchange}")
+    private String exchange;
 
-    @Scheduled(fixedDelay = 1000, initialDelay = 500)
-    public void send() {
-        String message = "Hello World!";
-        this.template.convertAndSend(queue.getName(), message);
-        System.out.println(" [x] Sent '" + message + "'");
-    }
-}
+    @Value("${javainuse.rabbitmq.routingkey}")
+    private String routingkey;
+
+    public void send(DonationEntity company) {
+        rabbitTemplate.convertAndSend(exchange, routingkey, company);
+        System.out.println("Send msg = " + company);
+
+    }}
