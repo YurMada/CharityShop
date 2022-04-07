@@ -2,7 +2,6 @@ package se.iths.charity_shop.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import se.iths.charity_shop.entity.RoleEntity;
 import se.iths.charity_shop.entity.StockEntity;
 import se.iths.charity_shop.repository.CharityRepository;
 import se.iths.charity_shop.repository.DonationRepository;

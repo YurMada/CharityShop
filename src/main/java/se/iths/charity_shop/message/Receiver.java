@@ -1,4 +1,5 @@
 package se.iths.charity_shop.message;
+
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 

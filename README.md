@@ -131,7 +131,8 @@ Use **Insomnia** (can be found here https://insomnia.rest/download ) to run the 
 
 ```json
 {
-  "amount": "<amount>"
+  "amount": "<amount>",
+  "name": "<name>"
 }
 ```
 

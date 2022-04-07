@@ -6,7 +6,6 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import se.iths.charity_shop.entity.RoleEntity;
 import se.iths.charity_shop.entity.UserEntity;
-
 import java.util.Collection;
 
 

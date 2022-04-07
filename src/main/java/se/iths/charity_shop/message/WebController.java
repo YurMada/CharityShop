@@ -14,7 +14,6 @@ public class WebController {
     @Autowired
     Sender rabbitMQSender;
 
-
     @GetMapping(value = "/message")
     public String producer(@RequestParam("empName") String amount) {
 
@@ -23,6 +22,6 @@ public class WebController {
 
         rabbitMQSender.send(donation);
 
-        return "New donaton was made";
+        return "New donation was made";
     }
 }
