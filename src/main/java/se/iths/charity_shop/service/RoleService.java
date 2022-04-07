@@ -1,7 +1,6 @@
 package se.iths.charity_shop.service;
 
 import org.springframework.stereotype.Service;
-import se.iths.charity_shop.entity.EmployeeEntity;
 import se.iths.charity_shop.entity.RoleEntity;
 import se.iths.charity_shop.repository.RoleRepository;
 import java.util.Optional;

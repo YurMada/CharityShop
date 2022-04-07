@@ -1,14 +1,11 @@
 package se.iths.charity_shop.service;
 
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import se.iths.charity_shop.entity.RoleEntity;
-import se.iths.charity_shop.entity.StockEntity;
 import se.iths.charity_shop.entity.UserEntity;
 import se.iths.charity_shop.repository.RoleRepository;
 import se.iths.charity_shop.repository.UserRepository;
-
 import java.util.Optional;
 
 @Service

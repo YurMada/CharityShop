@@ -3,11 +3,9 @@ package se.iths.charity_shop.controller;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import se.iths.charity_shop.entity.CharityEntity;
 import se.iths.charity_shop.entity.DonationEntity;
 import se.iths.charity_shop.exception.BadRequestException;
 import se.iths.charity_shop.service.DonationService;
-
 import java.util.Optional;
 
 @RestController

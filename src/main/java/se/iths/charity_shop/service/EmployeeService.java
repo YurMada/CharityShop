@@ -1,9 +1,6 @@
 package se.iths.charity_shop.service;
 
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import se.iths.charity_shop.entity.CharityEntity;
 import se.iths.charity_shop.entity.EmployeeEntity;
 import se.iths.charity_shop.repository.EmployeeRepository;
 import java.util.Optional;

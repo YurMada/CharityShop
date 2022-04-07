@@ -4,8 +4,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.jms.annotation.EnableJms;
-import org.springframework.scheduling.annotation.EnableScheduling;
 import se.iths.charity_shop.entity.RoleEntity;
 import se.iths.charity_shop.repository.RoleRepository;
 

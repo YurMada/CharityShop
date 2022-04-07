@@ -1,12 +1,9 @@
 package se.iths.charity_shop.message;
 
-
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-
-
 import se.iths.charity_shop.entity.DonationEntity;
 
 @Service

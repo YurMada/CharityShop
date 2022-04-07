@@ -4,11 +4,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-import se.iths.charity_shop.entity.RoleEntity;
 import se.iths.charity_shop.entity.StockEntity;
 import se.iths.charity_shop.exception.BadRequestException;
 import se.iths.charity_shop.service.StockService;
-
 import java.net.URI;
 import java.util.Optional;
 

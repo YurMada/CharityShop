@@ -1,6 +1,5 @@
 package se.iths.charity_shop.entity;
 
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -46,7 +45,6 @@ public class StockEntity {
     public Long getId() {
         return id;
     }
-
 
     public void setId(Long id) {
         this.id = id;

@@ -2,7 +2,6 @@ package se.iths.charity_shop.exception;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.http.HttpStatus;
-
 import java.time.LocalDateTime;
 
 public class ApiException {

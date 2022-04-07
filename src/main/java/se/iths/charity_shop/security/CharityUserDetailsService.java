@@ -1,13 +1,11 @@
 package se.iths.charity_shop.security;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import se.iths.charity_shop.entity.UserEntity;
 import se.iths.charity_shop.repository.UserRepository;
-
 
 @Service
 public class CharityUserDetailsService implements UserDetailsService {
