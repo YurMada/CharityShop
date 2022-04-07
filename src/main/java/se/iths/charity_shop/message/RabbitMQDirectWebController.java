@@ -1,10 +1,12 @@
 package se.iths.charity_shop.message;
+/*
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import se.iths.charity_shop.entity.UserEntity;
 
 @RestController
 @RequestMapping(value = "/javainuse-rabbitmq/direct/")
@@ -13,8 +15,20 @@ public class RabbitMQDirectWebController {
     @Autowired
     private AmqpTemplate amqpTemplate;
 
+    @Autowired
+    RabbitMQSender rabbitMQSender;
     @GetMapping(value = "/producer")
-    public String producer(@RequestParam("hej") String exchange, @RequestParam("routingKey") String routingKey,
+    public String producer(@RequestParam("empName") String empName,@RequestParam("empId") String empId) {
+
+        UserEntity emp=new UserEntity();
+
+        emp.setEmail(empName);
+        rabbitMQSender.send(emp);
+
+        return "Message sent to the RabbitMQ JavaInUse Successfully";
+    }
+    @GetMapping(value = "/producer2")
+    public String producer(@RequestParam("exchangeName") String exchange, @RequestParam("routingKey") String routingKey,
                            @RequestParam("messageData") String messageData) {
 
         amqpTemplate.convertAndSend(exchange, routingKey, messageData);
@@ -23,3 +37,4 @@ public class RabbitMQDirectWebController {
     }
 
 }
+*/

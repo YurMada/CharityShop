@@ -1,4 +1,5 @@
 package se.iths.charity_shop.message;
+/*
 
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.amqp.core.Binding;
@@ -52,4 +53,4 @@ public class RabbitMQDirectConfig {
         return BindingBuilder.bind(adminQueue).to(exchange).with("admin");
     }
 
-}
+}*/

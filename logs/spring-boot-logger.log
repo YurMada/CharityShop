@@ -7577,3 +7577,9 @@ java.lang.NullPointerException: Cannot invoke "se.iths.charity_shop.message.Rabb
 2022-04-07 17:03:19,320 DEBUG com.zaxxer.hikari.pool.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Fill pool skipped, pool is at sufficient level.
 2022-04-07 17:03:49,337 DEBUG com.zaxxer.hikari.pool.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
 2022-04-07 17:03:49,337 DEBUG com.zaxxer.hikari.pool.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+2022-04-07 17:04:19,344 DEBUG com.zaxxer.hikari.pool.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2022-04-07 17:04:19,344 DEBUG com.zaxxer.hikari.pool.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+2022-04-07 17:04:49,356 DEBUG com.zaxxer.hikari.pool.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2022-04-07 17:04:49,356 DEBUG com.zaxxer.hikari.pool.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+2022-04-07 17:05:19,357 DEBUG com.zaxxer.hikari.pool.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2022-04-07 17:05:19,357 DEBUG com.zaxxer.hikari.pool.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Fill pool skipped, pool is at sufficient level.

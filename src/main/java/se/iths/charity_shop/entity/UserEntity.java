@@ -1,12 +1,14 @@
 package se.iths.charity_shop.entity;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
-
+@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "@id", scope = UserEntity.class)
 @Entity
 public class UserEntity {
 
