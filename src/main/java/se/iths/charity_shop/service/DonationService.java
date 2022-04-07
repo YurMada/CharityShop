@@ -2,6 +2,7 @@ package se.iths.charity_shop.service;
 
 import org.springframework.stereotype.Service;
 import se.iths.charity_shop.entity.CharityEntity;
+import org.springframework.web.bind.annotation.RestController;
 import se.iths.charity_shop.entity.DonationEntity;
 import se.iths.charity_shop.repository.DonationRepository;
 import java.util.Optional;
@@ -16,7 +17,7 @@ public class DonationService {
     }
 
     public DonationEntity createDonation(DonationEntity donationEntity) {
-        //Sender.sendMessage();
+
         return donationRepository.save(donationEntity);
     }
     public void saveOrUpdate(DonationEntity donationEntity)

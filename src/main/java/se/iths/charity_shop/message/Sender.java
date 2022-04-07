@@ -7,10 +7,10 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 
-import se.iths.charity_shop.entity.UserEntity;
+import se.iths.charity_shop.entity.DonationEntity;
 
 @Service
-public class RabbitMQSender {
+public class Sender {
 
     @Autowired
     private AmqpTemplate rabbitTemplate;
@@ -21,7 +21,7 @@ public class RabbitMQSender {
     @Value("${javainuse.rabbitmq.routingkey}")
     private String routingkey;
 
-    public void send(UserEntity company) {
+    public void send(DonationEntity company) {
         rabbitTemplate.convertAndSend(exchange, routingkey, company);
         System.out.println("Send msg = " + company);
 
