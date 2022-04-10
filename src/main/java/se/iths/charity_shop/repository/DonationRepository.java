@@ -4,6 +4,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import se.iths.charity_shop.entity.DonationEntity;
+import se.iths.charity_shop.entity.RoleEntity;
 
 @Repository
 public interface DonationRepository extends CrudRepository<DonationEntity,Long> {
