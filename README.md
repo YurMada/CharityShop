@@ -47,6 +47,7 @@ Use **Insomnia** (can be found here https://insomnia.rest/download ) to run the 
 
 - Use `Basic Auth`
   - Admin: ADMIN / password2
+  - All URLs start with `http://localhost:8080/`
 
 **POST and PUT requires a Body with a JSON object. PUT requires an ID as well**
 
