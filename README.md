@@ -46,7 +46,6 @@ docker-compose up --build
 Use **Insomnia** (can be found here https://insomnia.rest/download ) to run the following endpoints :
 
 - Use `Basic Auth`
-  - User:  USER / password1
   - Admin: ADMIN / password2
 
 **POST and PUT requires a Body with a JSON object. PUT requires an ID as well**
